@@ -6,13 +6,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          light: "#8AE6FF",
-          DEFAULT: "#3B82F6",
-          dark: "#1E40AF",
+          light: "#F87171",
+          DEFAULT: "#6A040F",
+          dark: "#450a0a",
         },
         accent: {
-          mint: "#34D399",
-          violet: "#A78BFA",
+          rose: "#FB7185",
+          wine: "#6A040F",
         },
       },
       fontFamily: {
@@ -20,7 +20,7 @@ export default {
         body: ["Manrope", "ui-sans-serif", "system-ui"],
       },
       boxShadow: {
-        glow: "0 0 25px rgba(59, 130, 246, 0.25)",
+        glow: "0 0 25px rgba(106, 4, 15, 0.35)",
       },
       keyframes: {
         float: {

@@ -34,7 +34,7 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-glow transition hover:scale-[1.02] hover:shadow-xl;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-red-500 via-[#6A040F] to-[#450a0a] px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:scale-[1.02] hover:shadow-xl;
   }
 
   .btn-ghost {
@@ -56,7 +56,7 @@ body {
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-red-500 via-rose-500 to-[#6A040F] bg-clip-text text-transparent;
   }
 
   .grid-pattern {
@@ -79,6 +79,57 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Parallax halus — di-drive variabel --px (di-update rAF saat scroll) */
+  .parallax-slow {
+    transform: translate3d(0, calc(var(--px, 0px) * -0.15), 0);
+    will-change: transform;
+  }
+
+  .parallax-mid {
+    transform: translate3d(0, calc(var(--px, 0px) * -0.25), 0);
+    will-change: transform;
+  }
+
+  .parallax-hero {
+    transform: translate3d(0, calc(var(--px, 0px) * -0.06), 0);
+    will-change: transform;
+  }
+
+  .hero-depth-1 {
+    transform: translate3d(
+      calc(var(--mx, 0) * 8px),
+      calc(var(--my, 0) * 8px + var(--px, 0px) * -0.03),
+      0
+    );
+    will-change: transform;
+  }
+
+  .hero-depth-2 {
+    transform: translate3d(
+      calc(var(--mx, 0) * 24px),
+      calc(var(--my, 0) * 24px + var(--px, 0px) * -0.1),
+      0
+    );
+    will-change: transform;
+  }
+
+  .hero-depth-3 {
+    transform: translate3d(
+      calc(var(--mx, 0) * -16px),
+      calc(var(--my, 0) * -16px + var(--px, 0px) * -0.16),
+      0
+    );
+    will-change: transform;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -91,5 +142,14 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .parallax-slow,
+  .parallax-mid,
+  .parallax-hero,
+  .hero-depth-1,
+  .hero-depth-2,
+  .hero-depth-3 {
+    transform: none;
   }
 }
